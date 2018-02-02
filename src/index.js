@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './index.css';
+import data from  './data.json';
 
 
 class TodoApp extends React.Component{
@@ -8,26 +9,15 @@ class TodoApp extends React.Component{
   constructor(){
     super();
     this.state = {
-      data:[
-        {text:"abc", check:"false", status:""},
-        {text:"xyz", check:"false", status:""},
-        {text:"123", check:"false", status:""}
-      ]
+      data:data.data
     };
   }
 
-  handleClick = () => {
-    const change = this.state.data.status == ""?"complete":"";
-    const checkit = this.state.data.check == "false"?"true":"false";
-    this.setState({
-      status : change,
-      check : checkit
-    });
-  }
+  
 
   render(){
     const dataList = this.state.data.map((data, i) => <li className="list-group-item" key={'text_'+i}>
-    <input type="checkbox" check={data.check} onClick={this.handleClick} />
+    <input type="checkbox" />
     {data.text}
     <span className="badge" >{data.status}</span>
      </li>);
