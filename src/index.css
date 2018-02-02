@@ -1,0 +1,19 @@
+#content{
+  margin-top: 100px;
+}
+
+#root{
+  margin:auto;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+/*
+<div class="form-group">
+  <br />
+  <label>Todo</label>
+  <input type="text" placeholder="Your Todo.." class="form-control" id="usr" />
+  <br />
+  <button type="button" class="btn btn-default">
+    Submit
+  </button>
+</div> */
