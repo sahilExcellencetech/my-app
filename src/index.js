@@ -9,25 +9,26 @@ class TodoApp extends React.Component{
     super();
     this.state = {
       data:[
-        {text:"abc", check:"false", status:""},
-        {text:"xyz", check:"false", status:""},
-        {text:"123", check:"false", status:""}
+        {id:0,text:"xyz", check:"false", status:""},
+        {id:1,text:"abc", check:"false", status:""},
+        {id:2,text:"123", check:"false", status:""}
       ]
     };
   }
 
-  handleClick = () => {
-    const change = this.state.data.status == ""?"complete":"";
-    const checkit = this.state.data.check == "false"?"true":"false";
-    this.setState({
-      status : change,
-      check : checkit
-    });
+  handleClick = (e) => {
+    
+    // const change = this.state.data.status == ""?"complete":"";
+    // const checkit = this.state.data.check == "false"?"true":"false";
+    // this.setState({
+    //   status : change,
+    //   check : checkit
+    // });
   }
 
   render(){
     const dataList = this.state.data.map((data, i) => <li className="list-group-item" key={'text_'+i}>
-    <input type="checkbox" check={data.check} onClick={this.handleClick} />
+    <input type="checkbox" check={data.check} onClick={this.handleClick(data.id)} />
     {data.text}
     <span className="badge" >{data.status}</span>
      </li>);
