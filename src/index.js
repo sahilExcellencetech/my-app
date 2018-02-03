@@ -13,14 +13,22 @@ class TodoApp extends React.Component{
     };
   }
 
-  
+  handleClick = (e) => {
+    const change = e.status == ""?"complete":"";
+    e.status  = change
+    this.setState({
+      status : change
+    });
+  }
 
   render(){
-    const dataList = this.state.data.map((data, i) => <li className="list-group-item" key={'text_'+i}>
-    <input type="checkbox" />
+    const dataList = this.state.data.map((data, i) => <li className="list-group-item" key={'data_'+i}>
+    <input type="checkbox"  onClick={(e) => this.handleClick(data, e)} />
     {data.text}
     <span className="badge" >{data.status}</span>
-     </li>);
+     </li>
+    );
+
     return(
     <div id="content">
       <h2>Todo App</h2>
@@ -40,8 +48,5 @@ class TodoApp extends React.Component{
     );
   }
 }
-
-
-
 
 ReactDOM.render(<TodoApp />, document.getElementById('root'));
