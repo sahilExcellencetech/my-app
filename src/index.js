@@ -9,26 +9,40 @@ class TodoApp extends React.Component{
   constructor(){
     super();
     this.state = {
-      data:data.data
+      data:data.data,
+      text : "",
+      id : [],
+      status : false
     };
   }
 
-  handleClick = (e) => {
-    const change = e.status == ""?"complete":"";
-    e.status  = change
-    this.setState({
-      status : change
-    });
-  }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    if (!this.state.text.length) {
+     return;
+   }
+   const newItem = {
+     id: Date.now(),
+     text: this.state.text,
+     status : false
+   };
+   this.setState( prevState =>({
+     data : prevState.data.concat(newItem),
+     text : "",
+     status : false
+   }));
+ }
 
+  handleChange = (e) => {
+    this.setState({ text: e.target.value });
+  }
   render(){
     const dataList = this.state.data.map((data, i) => <li className="list-group-item" key={'data_'+i}>
-    <input type="checkbox"  onClick={(e) => this.handleClick(data, e)} />
+    <input type="checkbox" />
     {data.text}
-    <span className="badge" >{data.status}</span>
+    <span className="badge" ></span>
      </li>
     );
-
     return(
     <div id="content">
       <h2>Todo App</h2>
@@ -37,12 +51,18 @@ class TodoApp extends React.Component{
       </ul>
       <div className="form-group">
         <br />
+        <form>
         <label>Todo</label>
-        <input type="text" placeholder="Your Todo.." className="form-control" id="usr" />
+        <input type="text" onChange={this.handleChange}
+        value={this.state.text}
+        placeholder="Your Todo.."
+        className="form-control"
+        id="usr" />
         <br />
-        <button type="button" className="btn btn-default">
+        <button onClick={this.handleSubmit} type="button" className="btn btn-default">
           Submit
         </button>
+        </form>
       </div>
     </div>
     );
