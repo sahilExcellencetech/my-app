@@ -4,10 +4,25 @@
 
 #root{
   margin:auto;
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .alertInput{
   border:1px solid red;
+}
+
+.btn-danger{
+  margin-left: 1%;
+}
+
+.btn-warning{
+  margin-left: 1%;
+}
+.btn-success{
+  margin-left: 6%;
+}
+
+.badge{
+  margin-top: 9px;
 }
