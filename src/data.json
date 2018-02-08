@@ -1,7 +1,7 @@
 {
   "data":[
-  {"id":0,"text":"xyz", "status":false, "badge":""},
-  {"id":1,"text":"abc", "status":false,"badge":""},
-  {"id":2,"text":"123", "status":false,"badge":""}
+  {"id":0,"text":"xyz", "status":false, "badge":"","bool":true,"disp":false},
+  {"id":1,"text":"abc", "status":false,"badge":"","bool":true,"disp":false},
+  {"id":2,"text":"123", "status":false,"badge":"","bool":true,"disp":false}
   ]
 }
